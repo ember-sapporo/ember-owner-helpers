@@ -29,10 +29,12 @@ A helper to look up the service is also available. It is just for convenience an
 ### Example: Use with [ember-toastr](https://github.com/knownasilya/ember-toastr)
 
 ``` hbs
-<button onclick={{invoke 'success' 'Hello!' (owner/lookup-service 'toast')}}>
+<form onsubmit={{pipe-action (action (invoke 'save' model)) (action (invoke 'success' 'Saved.' (owner/lookup-service 'toast')))}}>
+  ...
+</form>
 ```
 
-Note: The `invoke` helper is provided by [ember-composable-helpers](https://github.com/DockYard/ember-composable-helpers).
+Note: `pipe-action` and `invoke` are provided by [ember-composable-helpers](https://github.com/DockYard/ember-composable-helpers).
 
 
 Contributing
