@@ -1,7 +1,7 @@
 ember-owner-helpers
 ==============================================================================
 
-[Short description of the addon.]
+An add-on that provides helpers related to the application instance.
 
 Installation
 ------------------------------------------------------------------------------
@@ -14,7 +14,25 @@ ember install ember-owner-helpers
 Usage
 ------------------------------------------------------------------------------
 
-[Longer description of how to use the addon in apps.]
+``` hbs
+{{owner/lookup 'service:foo'}}
+```
+
+For details on how to use the `lookup` method, see the document of [Ember.ContainerProxyMixin](https://emberjs.com/api/ember/3.0/classes/ContainerProxyMixin).
+
+A helper to look up the service is also available. It is just for convenience and does not do special things.
+
+``` hbs
+{{owner/lookup-service 'foo'}}
+```
+
+### Example: Use with [ember-toastr](https://github.com/knownasilya/ember-toastr)
+
+``` hbs
+<button onclick={{invoke 'success' 'Hello!' (owner/lookup-service 'toast')}}>
+```
+
+Note: The `invoke` helper is provided by [ember-composable-helpers](https://github.com/DockYard/ember-composable-helpers).
 
 
 Contributing
@@ -22,7 +40,7 @@ Contributing
 
 ### Installation
 
-* `git clone <repository-url>`
+* `git clone https://github.com/ember-sapporo/ember-owner-helpers.git`
 * `cd ember-owner-helpers`
 * `yarn install`
 
